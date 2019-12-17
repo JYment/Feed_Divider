@@ -1,0 +1,818 @@
+(PCB MAIN
+ (description
+  (timeStamp "2019 08 31 18 19 51")
+  (program "CAPTURE.EXE" (Version "16.5.0.p001"))
+  (source "Original data from OrCAD/CAPTURE schematic")
+  (title "")
+  (date "September 01, 2019")
+  (document "E:\\2_WORK\\CCOMPANY\\2019년\\사료분배기\\CIRCUIT\\MAIN.DSN")
+  (revision "")
+  (organization "")
+  (address1 "")
+  (address2 "")
+  (address3 "")
+  (address4 "")
+  (partvaluecombine "{Value}")
+  (pcbfootprintcombine "{PCB Footprint}"))
+ (structure )
+ (placement
+  (component IC_74HC241
+   (place U3
+    (property 
+     ("PCB Footprint" IC_74HC241_DIP20)
+     (timestamp 0027CDDB)
+     ("Source Package" IC_74HC241)
+     (Value IC_74HC241))))
+  (component CON2
+   (place J1
+    (property 
+     ("PCB Footprint" "MOLEX_5267-2")
+     (timestamp 0027D90F)
+     ("Source Package" CON2)
+     (Value CON2)))
+   (place J2
+    (property 
+     ("PCB Footprint" "MOLEX_5267-2")
+     (timestamp 0027BC36)
+     ("Source Package" CON2)
+     (Value CON2))))
+  (component "CAPACITOR NON-POL_1"
+   (place C1
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027DD04)
+     ("Source Package" "CAPACITOR NON-POL_1")
+     (Value 100nF)))
+   (place C4
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027BB10)
+     ("Source Package" "CAPACITOR NON-POL_1")
+     (Value 100nF)))
+   (place C5
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027B9D4)
+     ("Source Package" "CAPACITOR NON-POL_1")
+     (Value 100nF)))
+   (place C6
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027BA46)
+     ("Source Package" "CAPACITOR NON-POL_1")
+     (Value 100nF)))
+   (place C7
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027B974)
+     ("Source Package" "CAPACITOR NON-POL_1")
+     (Value 22pF)))
+   (place C8
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027B98E)
+     ("Source Package" "CAPACITOR NON-POL_1")
+     (Value 22pF))))
+  (component CON3
+   (place J10
+    (property 
+     ("PCB Footprint" "MOLEX_5267-3")
+     (timestamp 0027C975)
+     ("Source Package" CON3)
+     (Value CON3)))
+   (place J6
+    (property 
+     ("PCB Footprint" SIP3P)
+     (timestamp 0027C10A)
+     ("Source Package" CON3)
+     (Value SW1)))
+   (place J7
+    (property 
+     ("PCB Footprint" SIP3P)
+     (timestamp 0027C2F8)
+     ("Source Package" CON3)
+     (Value SW2)))
+   (place J8
+    (property 
+     ("PCB Footprint" SIP3P)
+     (timestamp 0027C371)
+     ("Source Package" CON3)
+     (Value SW3))))
+  (component "CAP NP"
+   (place C9
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027BFD6)
+     ("Source Package" "CAP NP")
+     (Value 100nF))))
+  (component C_0
+   (place C2
+    (property 
+     ("PCB Footprint" 3216)
+     (timestamp 0027DCBA)
+     ("Source Package" C_0)
+     (Value 10uF)))
+   (place C3
+    (property 
+     ("PCB Footprint" 3216)
+     (timestamp 0027BAF4)
+     ("Source Package" C_0)
+     (Value 10uF))))
+  (component CON4
+   (place J11
+    (property 
+     ("PCB Footprint" "MOLEX_5267-4")
+     (timestamp 0027E4A3)
+     ("Source Package" CON4)
+     (Value Serial)))
+   (place J9
+    (property 
+     ("PCB Footprint" "MOLEX_5267-4")
+     (timestamp 0027BFA2)
+     ("Source Package" CON4)
+     (Value load_cell_CON))))
+  (component CON5
+   (place J5
+    (property 
+     ("PCB Footprint" "MOLEX_5267-5")
+     (timestamp 0027C42D)
+     ("Source Package" CON5)
+     (Value DS1302))))
+  (component CRYSTAL_0
+   (place Y1
+    (property 
+     ("PCB Footprint" XTAL_SMD)
+     (timestamp 0027B954)
+     (NC "2, 4")
+     ("Source Package" CRYSTAL_0)
+     (Value 16MHz))))
+  (component CON7
+   (place J4
+    (property 
+     ("PCB Footprint" "MOLEX_5267-7")
+     (timestamp 0027C6E9)
+     ("Source Package" CON7)
+     (Value "TFT LCD"))))
+  (component "SW PUSHBUTTON_1"
+   (place SW1
+    (property 
+     ("PCB Footprint" TACT_ITS_1150D)
+     (timestamp 0027E8F4)
+     (NC "3, 4")
+     ("Source Package" "SW PUSHBUTTON_1")
+     (Filename NC)
+     (Value "SW PUSHBUTTON"))))
+  (component ATmega328_0
+   (place U2
+    (property 
+     ("PCB Footprint" TQFP32)
+     (timestamp 0027B8E8)
+     ("Source Package" ATmega328_0)
+     (Value "ATmega328p-au"))))
+  (component LED_0
+   (place D1
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027B896)
+     ("Source Package" LED_0)
+     (Value LED)))
+   (place D2
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027C07B)
+     ("Source Package" LED_0)
+     (Value Red))))
+  (component "HEADER 3x2/SM_2"
+   (place J3
+    (property 
+     ("PCB Footprint" ISP6P)
+     (timestamp 0027BA94)
+     ("Source Package" "HEADER 3x2/SM_2")
+     (Value HeaderPin2X3))))
+  (component Module_HX711
+   (place U4
+    (property 
+     ("PCB Footprint" MODULE_XFW_HX711)
+     (timestamp 0027BF82)
+     ("Source Package" Module_HX711)
+     (Value Module_HX711))))
+  (component R
+   (place R1
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027BB34)
+     ("Source Package" R)
+     (Value 220)))
+   (place R2
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027BB90)
+     ("Source Package" R)
+     (Value 10K)))
+   (place R3
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027C067)
+     ("Source Package" R)
+     (Value 330)))
+   (place R4
+    (property 
+     ("PCB Footprint" 0603)
+     (timestamp 0027CE66)
+     ("Source Package" R)
+     (Value 10k))))
+  (component REG_7805
+   (place U1
+    (property 
+     ("PCB Footprint" KIA7805AF_DPAK)
+     (timestamp 0027BAB8)
+     ("Source Package" REG_7805)
+     (Value REG_7805)))))
+ (library
+  (image REG_7805
+   (property 
+    (sourcelib D:\\11_DEV_PROGRAM\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\JY_LIBRARY.OLB))
+   (pin 999 1
+    (property 
+     (pinname INPUT)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname GND)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname OUTPUT)
+     (pintype 4))))
+  (image ATmega328_0
+   (property 
+    (sourcelib "C:\\USERS\\HP\\DESKTOP\\아두이노ING\\T_CANVAS V2.0\\T_CANVAS_M.DSN"))
+   (pin 999 29
+    (property 
+     (pinname "(RESET)PC6")
+     (pintype 1)))
+   (pin 999 30
+    (property 
+     (pinname "(RXD)PD0")
+     (pintype 1)))
+   (pin 999 31
+    (property 
+     (pinname "(TXD)PD1")
+     (pintype 1)))
+   (pin 999 32
+    (property 
+     (pinname "(INT0)PD2")
+     (pintype 1)))
+   (pin 999 1
+    (property 
+     (pinname "PD3(INT1)")
+     (pintype 1)))
+   (pin 999 2
+    (property 
+     (pinname "PD4(T0)")
+     (pintype 1)))
+   (pin 999 3
+    (property 
+     (pinname GND1)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname VCC1)
+     (pintype 4)))
+   (pin 999 7
+    (property 
+     (pinname "PB6(XTAL1)")
+     (pintype 1)))
+   (pin 999 8
+    (property 
+     (pinname "PB7(XTAL2)")
+     (pintype 1)))
+   (pin 999 9
+    (property 
+     (pinname "PD5(T1)")
+     (pintype 1)))
+   (pin 999 10
+    (property 
+     (pinname "PD6(AIN0)")
+     (pintype 1)))
+   (pin 999 11
+    (property 
+     (pinname "PD7(AIN1)")
+     (pintype 1)))
+   (pin 999 12
+    (property 
+     (pinname "PB0(ICP)")
+     (pintype 1)))
+   (pin 999 13
+    (property 
+     (pinname "PB1(0C1)")
+     (pintype 1)))
+   (pin 999 14
+    (property 
+     (pinname "PB2(SS)")
+     (pintype 1)))
+   (pin 999 15
+    (property 
+     (pinname "PB3(MOSI)")
+     (pintype 1)))
+   (pin 999 16
+    (property 
+     (pinname "PB4(MISO)")
+     (pintype 1)))
+   (pin 999 17
+    (property 
+     (pinname "(SCK)PB5")
+     (pintype 1)))
+   (pin 999 18
+    (property 
+     (pinname AVCC)
+     (pintype 4)))
+   (pin 999 20
+    (property 
+     (pinname AREF)
+     (pintype 4)))
+   (pin 999 21
+    (property 
+     (pinname AGND)
+     (pintype 4)))
+   (pin 999 23
+    (property 
+     (pinname "(ADC0)PC0")
+     (pintype 1)))
+   (pin 999 24
+    (property 
+     (pinname "(ADC1)PC1")
+     (pintype 1)))
+   (pin 999 25
+    (property 
+     (pinname "(ADC2)PC2")
+     (pintype 1)))
+   (pin 999 26
+    (property 
+     (pinname "(ADC3)PC3")
+     (pintype 1)))
+   (pin 999 27
+    (property 
+     (pinname "(ADC4)PC4")
+     (pintype 1)))
+   (pin 999 28
+    (property 
+     (pinname "(ADC5)PC5")
+     (pintype 1)))
+   (pin 999 6
+    (property 
+     (pinname VCC2)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname GND2)
+     (pintype 4)))
+   (pin 999 19
+    (property 
+     (pinname ADC6)
+     (pintype 4)))
+   (pin 999 22
+    (property 
+     (pinname ADC7)
+     (pintype 4))))
+  (image IC_74HC241
+   (property 
+    (sourcelib F:\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\JY_LIBRARY.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1O\\E\\)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 1A0)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 2Y0)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname 1A1)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname 2Y1)
+     (pintype 4)))
+   (pin 999 6
+    (property 
+     (pinname 1A2)
+     (pintype 4)))
+   (pin 999 7
+    (property 
+     (pinname 2Y2)
+     (pintype 4)))
+   (pin 999 8
+    (property 
+     (pinname 1A3)
+     (pintype 4)))
+   (pin 999 9
+    (property 
+     (pinname 2Y3)
+     (pintype 4)))
+   (pin 999 10
+    (property 
+     (pinname GND)
+     (pintype 4)))
+   (pin 999 11
+    (property 
+     (pinname 2A3)
+     (pintype 4)))
+   (pin 999 12
+    (property 
+     (pinname 1Y3)
+     (pintype 4)))
+   (pin 999 13
+    (property 
+     (pinname 2A2)
+     (pintype 4)))
+   (pin 999 14
+    (property 
+     (pinname 1Y2)
+     (pintype 4)))
+   (pin 999 15
+    (property 
+     (pinname 2A1)
+     (pintype 4)))
+   (pin 999 16
+    (property 
+     (pinname 1Y1)
+     (pintype 4)))
+   (pin 999 17
+    (property 
+     (pinname 2A0)
+     (pintype 4)))
+   (pin 999 18
+    (property 
+     (pinname 1Y0)
+     (pintype 4)))
+   (pin 999 19
+    (property 
+     (pinname 2OE)
+     (pintype 4)))
+   (pin 999 20
+    (property 
+     (pinname VCC)
+     (pintype 4))))
+  (image R
+   (property 
+    (sourcelib C:\\ORCAD\\ORCAD_16.2\\TOOLS\\CAPTURE\\LIBRARY\\DISCRETE.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image Module_HX711
+   (property 
+    (sourcelib D:\\11_DEV_PROGRAM\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\JY_LIBRARY.OLB))
+   (pin 999 1
+    (property 
+     (pinname E+)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname "E-")
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname "A-")
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname A+)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname "B-")
+     (pintype 4)))
+   (pin 999 6
+    (property 
+     (pinname B+)
+     (pintype 4)))
+   (pin 999 7
+    (property 
+     (pinname VCC)
+     (pintype 4)))
+   (pin 999 8
+    (property 
+     (pinname SCK)
+     (pintype 4)))
+   (pin 999 9
+    (property 
+     (pinname DT)
+     (pintype 4)))
+   (pin 999 10
+    (property 
+     (pinname GND)
+     (pintype 4))))
+  (image CON3
+   (property 
+    (sourcelib F:\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\CONNECTOR.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4))))
+  (image CON4
+   (property 
+    (sourcelib D:\\11_DEV_PROGRAM\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\CONNECTOR.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname 4)
+     (pintype 4))))
+  (image "CAPACITOR NON-POL_1"
+   (property 
+    (sourcelib C:\\USERS\\HP\\DESKTOP\\DD\\MINI.DSN))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image C_0
+   (property 
+    (sourcelib D:\\2_WORK\\CCOMPANY\\2018_NEW\\WIRELESS2\\8_RECEIVER\\TRASMITTER.DSN))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image "CAP NP"
+   (property 
+    (sourcelib C:\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\DISCRETE.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image CRYSTAL_0
+   (property 
+    (sourcelib E:\\2_WORK\\CCOMPANY\\2019년\\사료분배기\\CIRCUIT\\MAIN.DSN)
+    (NC "2, 4"))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image CON2
+   (property 
+    (sourcelib F:\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\CONNECTOR.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image "HEADER 3x2/SM_2"
+   (property 
+    (sourcelib C:\\USERS\\HP\\DESKTOP\\EDU\\회로도\\EDU_NEW.DSN))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname 5)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname 4)
+     (pintype 4)))
+   (pin 999 6
+    (property 
+     (pinname 6)
+     (pintype 4))))
+  (image CON7
+   (property 
+    (sourcelib F:\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\CONNECTOR.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname 4)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname 5)
+     (pintype 4)))
+   (pin 999 6
+    (property 
+     (pinname 6)
+     (pintype 4)))
+   (pin 999 7
+    (property 
+     (pinname 7)
+     (pintype 4))))
+  (image CON5
+   (property 
+    (sourcelib F:\\CADENCE\\SPB_16.5\\TOOLS\\CAPTURE\\LIBRARY\\CONNECTOR.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname 4)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname 5)
+     (pintype 4))))
+  (image LED_0
+   (property 
+    (sourcelib D:\\2_WORK\\CCOMPANY\\2018_NEW\\WIRELESS2\\8_RECEIVER\\TRASMITTER.DSN))
+   (pin 999 2
+    (property 
+     (pinname ANODE)
+     (pintype 4)))
+   (pin 999 1
+    (property 
+     (pinname CATHODE)
+     (pintype 4))))
+  (image "SW PUSHBUTTON_1"
+   (property 
+    (sourcelib E:\\2_WORK\\CCOMPANY\\2019년\\사료분배기\\CIRCUIT\\MAIN.DSN)
+    (Filename NC)
+    (NC "3, 4"))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))))
+ (network
+  (net A0
+   (pins
+     U2-23 J6-3))
+  (net A1
+   (pins
+     U2-24 J7-3))
+  (net A2
+   (pins
+     U2-25 J8-3))
+  (net A4
+   (pins
+     U2-27 U4-9))
+  (net A5
+   (pins
+     U2-28 U4-8))
+  (net AREF
+   (pins
+     C6-2 U2-20))
+  (net BLACK
+   (pins
+     J9-3 U4-2))
+  (net DATA
+   (pins
+     J10-3 U3-2 U3-3 R4-1))
+  (net DIRECTION
+   (pins
+     U3-1 U3-19))
+  (net GND
+    (property 
+     (nettype S))
+   (pins
+     C5-1 C6-1 D1-1 C3-2 J3-6 C7-1 C4-2 U2-3 U2-21
+     U2-5 C8-1 U1-2 J2-1 U4-7 C9-1 D2-2 J6-1 J7-1
+     J8-1 J5-2 J4-2 J10-2 U3-10 J1-1 C2-2 C1-2 J11-2
+     SW1-1))
+  (net GREEN
+   (pins
+     J9-2 U4-3))
+  (net IO0
+   (pins
+     U2-30 J11-3))
+  (net IO1
+   (pins
+     U2-31 J11-4))
+  (net IO10
+   (pins
+     U2-14 J4-4))
+  (net IO11
+   (pins
+     J3-4 U2-15 J4-5))
+  (net IO12
+   (pins
+     J3-1 U2-16 R3-1))
+  (net IO13
+   (pins
+     J3-3 U2-17 J4-6))
+  (net IO2
+   (pins
+     U2-32 J5-5))
+  (net IO3
+   (pins
+     U2-1 J5-4))
+  (net IO4
+   (pins
+     U2-2 J5-3))
+  (net IO5
+   (pins
+     U2-9 U3-18))
+  (net IO6
+   (pins
+     U2-10 U3-17))
+  (net IO9
+   (pins
+     U2-13 J4-3))
+  (net N2603320
+   (pins
+     Y1-2 C7-2 U2-7))
+  (net N2603324
+   (pins
+     Y1-1 U2-8 C8-2))
+  (net N2604300
+   (pins
+     D1-2 R1-2))
+  (net N2605141
+   (pins
+     R3-2 D2-1))
+  (net RED
+   (pins
+     J9-4 U4-1))
+  (net RESET
+   (pins
+     R2-2 J3-5 U2-29 J4-7 SW1-2))
+  (net VCC_12V
+    (property 
+     (nettype S))
+   (pins
+     U1-1 J2-2 J10-1 J1-2 C2-1 C1-1))
+  (net VCC_5V
+    (property 
+     (nettype S))
+   (pins
+     C5-2 R2-1 C3-1 J3-2 C4-1 U2-4 U2-18 U2-6 R1-1
+     U1-3 U4-10 C9-2 J6-2 J7-2 J8-2 J5-1 J4-1 U3-20
+     R4-2 J11-1))
+  (net WHITE
+   (pins
+     J9-1 U4-4)))
+)

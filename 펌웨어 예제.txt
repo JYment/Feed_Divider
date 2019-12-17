@@ -1,0 +1,343 @@
+CLCD
+1602		
+http://scipia.co.kr/cms/blog/152
+
+
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(7,8,9,10,11,12);//RS,E,DB4,DB5,DB6,DB7
+
+void setup()
+{
+  lcd.begin(16,2);
+  lcd.setCursor(0,0);
+  lcd.write("WWW.SCIPIA.CO.KR");
+  lcd.setCursor(0,1);
+  lcd.write("LCD1602 TEST OK!");
+}
+
+void loop()
+{
+    lcd.noDisplay();
+    delay(500);
+    lcd.display();
+    delay(500);
+}
+
+
+CLCD 
+2004A + I2C
+http://blog.naver.com/PostView.nhn?blogId=eduino&logNo=220904474324&parentCategoryNo=&categoryNo=21&viewDate=&isShowPopularPosts=true&from=search
+
+LCM12232.c 라이브러리 동작 확인 안함
+
+/******************** (C) COPYRIGHT 2007 STMicroelectronics ********************  
+* File Name          : LCM12232.c  
+* Author             : liuwenhui  
+* Version            : V1.0  
+* Date               : 21/05/2009  
+* Description        : This file provides all the GPIO firmware functions.  
+********************************************************************************  
+* THE PRESENT SOFTWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS  
+* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.  
+* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,  
+* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE  
+* CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING  
+* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.  
+*******************************************************************************/   
+#include "stm32f10x_lib.h"   
+   
+#define LCM_D0   GPIOE,GPIO_Pin_0   
+#define LCM_D1   GPIOE,GPIO_Pin_1   
+#define LCM_D2   GPIOE,GPIO_Pin_2   
+#define LCM_D3   GPIOE,GPIO_Pin_3   
+#define LCM_D4   GPIOE,GPIO_Pin_4   
+#define LCM_D5   GPIOE,GPIO_Pin_5   
+#define LCM_D6   GPIOE,GPIO_Pin_6   
+#define LCM_D7   GPIOE,GPIO_Pin_7   
+#define LCM_RST   GPIOE,GPIO_Pin_8   
+#define LCM_E1   GPIOE,GPIO_Pin_9   
+#define LCM_E2   GPIOE,GPIO_Pin_10   
+#define LCM_RW   GPIOE,GPIO_Pin_11   
+#define LCM_A0   GPIOE,GPIO_Pin_12   
+#define LCM_EL   GPIOE,GPIO_Pin_13   
+   
+u8 ZM[] = {    
+/*--  ????:  ?? 0 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x00,0x02,0x02,0xC2,0x02,0x02,0x02,0x02,0xFE,0x82,0x82,0x82,0x82,0x82,0x02,0x00,   
+0x20,0x20,0x20,0x3F,0x20,0x20,0x20,0x20,0x3F,0x20,0x20,0x20,0x20,0x20,0x20,0x00,   
+   
+/*--  ????:  ?? 1 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x00,0x04,0x04,0xC4,0x64,0x9C,0x87,0x84,0x84,0xE4,0x84,0x84,0x84,0x84,0x04,0x00,   
+0x04,0x02,0x01,0x7F,0x00,0x20,0x20,0x20,0x20,0x3F,0x20,0x20,0x20,0x20,0x20,0x00,   
+   
+/*--  ????:  ?? 2 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x00,0x02,0x02,0xFA,0x2A,0x2A,0x2A,0xFE,0x2A,0x2A,0x2A,0x2A,0xFA,0x02,0x02,0x00,   
+0x40,0x40,0x40,0x21,0x23,0x15,0x09,0x17,0x11,0x21,0x21,0x41,0xC1,0x40,0x40,0x00,   
+   
+/*--  ????:  ?? 3 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x20,0x24,0x2C,0x35,0xE6,0x34,0x2C,0x24,0x00,0xFC,0x24,0x24,0xE2,0x22,0x22,0x00,   
+0x21,0x11,0x4D,0x81,0x7F,0x05,0x59,0x21,0x18,0x07,0x00,0x00,0xFF,0x00,0x00,0x00,   
+   
+/*--  ????:  ?? 4 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x88,0xC8,0xB8,0x8F,0xE8,0x88,0x88,0x20,0x1C,0x0B,0xE8,0x08,0x08,0x18,0x08,0x00,   
+0x08,0x08,0x08,0x08,0xFF,0x04,0x84,0x60,0x18,0x06,0x01,0x06,0x18,0xE0,0x40,0x00,   
+   
+/*--  ????:  ?? 5 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x40,0x20,0xF8,0x0F,0x82,0x60,0x1E,0x14,0x10,0xFF,0x10,0x10,0x10,0x10,0x00,0x00,   
+0x00,0x00,0xFF,0x00,0x01,0x01,0x01,0x01,0x01,0xFF,0x01,0x01,0x01,0x01,0x01,0x00,   
+   
+/*--  ????:  ?? 6 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x40,0x42,0x4C,0xC4,0x00,0x22,0xAA,0xAA,0xAA,0xBF,0xAA,0xAA,0xAA,0x22,0x20,0x00,   
+0x00,0x00,0x00,0x7F,0x20,0x10,0xFF,0x0A,0x0A,0x0A,0x4A,0x8A,0x7F,0x00,0x00,0x00,   
+   
+/*--  ????:  ?? 7 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x90,0x88,0xA7,0xA2,0xA6,0xBA,0xA2,0xF8,0xA7,0xA2,0xA6,0xBA,0xA2,0x82,0x80,0x00,   
+0x00,0x04,0x04,0x04,0x04,0x0C,0x34,0x04,0x44,0x84,0x7F,0x04,0x04,0x04,0x00,0x00,   
+   
+/*--  ????:  ?? 8 --*/   
+/*--  ????12;  ???????¶????????????x??=16x16   --*/   
+0x20,0x10,0x08,0xC7,0x3A,0x50,0x44,0x44,0x44,0x7F,0x44,0xC4,0x44,0x44,0x40,0x00,   
+0x00,0x02,0x01,0xFF,0x00,0x02,0x02,0x1A,0x02,0x42,0x82,0x7F,0x02,0x02,0x02,0x00,   
+};   
+   
+// ?????????λ??code????unchar??????????data????????     
+static u8 *pzm;    
+   
+#define LCD_DISPLAYON 0xaf      //af ?????,   
+#define LCD_DISPLAYOFF 0xae      //ae ?????,   
+#define LCD_DRIVERON 0xa5       //a5 ??????????   
+#define LCD_DRIVEROFF 0xa4      //a4????????   
+#define LCD_DUTY16 0xa8          //????1/16   
+#define LCD_DUTY32 0xa9          //????1/32   
+//   
+#define LCD_END 0xee          /*??????-???-д????,?????е?????   
+                              ???????????-???-д???????λ?a?*/   
+   
+#define LCD_RESET 0xe2          /*????????? ??????????????????;   
+                              ??????????????????*/   
+   
+#define LCD_RWMODE 0xe0          /*????-???-д???? ????и???????,   
+                              y??????д????,????е???????1;   
+                              ????ж??????????е??????ı?   
+                              ???????????????С?END?????   
+                              ????????-???-д??????,   
+                              ???е????????????,????????????С? */   
+#define LCD_STARTLINE0 0xc0      //???????????? ?????0-31   
+#define LCD_PAGE0 0xb8          //????????        ?????0-3   
+#define LCD_COLUMNADDR0 0x00  //?е??????     ?????0-60   
+   
+#define LCD_ON() LCD_Command(LCD_DISPLAYON)   
+#define LCD_OFF() LCD_Command(LCD_DISPLAYOFF)   
+#define LCD_StaticON() LCD_Command(LCD_DRIVERON)   
+#define LCD_StaticOFF() LCD_Command(LCD_DRIVEROFF)   
+#define LCD_Select16() LCD_Command(LCD_DUTY16)   
+#define LCD_Select32() LCD_Command(LCD_DUTY32)   
+#define LCD_StartRW() LCD_Command(LCD_RWMODE)   
+#define LCD_EndRW() LCD_Command(LCD_END)   
+#define LCD_Reset() LCD_Command(LCD_RESET)   
+#define LCD_SetStartLine(i) LCD_Command(LCD_STARTLINE0|i)   
+#define LCD_SetPage(i) LCD_Command(LCD_PAGE0|i)   
+#define LCD_SetColumn(i) LCD_Command(LCD_COLUMNADDR0|i)   
+   
+   
+/*******************************************************************************  
+* Function Name  : Delay  
+* Description    : Inserts a delay time.  
+* Input          : nCount: specifies the delay time length.  
+* Output         : None  
+* Return         : None  
+*******************************************************************************/   
+void Delay(vu32 nCount)   
+{   
+  for(; nCount != 0; nCount--);   
+}   
+   
+void Write_Data(u8 OutputData)   
+{   
+    u8 OutputStatus;   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D7, (BitAction)OutputStatus);   
+    OutputData=(OutputData<<1);   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D6, (BitAction)OutputStatus);   
+    OutputData=(OutputData<<1);   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D5, (BitAction)OutputStatus);   
+    OutputData=(OutputData<<1);   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D4, (BitAction)OutputStatus);   
+    OutputData=(OutputData<<1);   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D3, (BitAction)OutputStatus);   
+    OutputData=(OutputData<<1);   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D2, (BitAction)OutputStatus);   
+    OutputData=(OutputData<<1);   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D1, (BitAction)OutputStatus);   
+    OutputData=(OutputData<<1);   
+    OutputStatus=OutputData&0x80;   
+    OutputStatus=(OutputStatus>>7);   
+    GPIO_WriteBit(LCM_D0, (BitAction)OutputStatus);   
+}   
+   
+   
+void LCD_Command(u8 nCommand)   
+{                                    
+    GPIO_ResetBits(LCM_A0);   
+    GPIO_SetBits(LCM_E1);    
+    GPIO_SetBits(LCM_E2);   
+    Write_Data(nCommand);   
+    GPIO_ResetBits(LCM_E1);    
+    GPIO_ResetBits(LCM_E2);   
+}   
+   
+   
+void LCD_Init(void)   
+{    
+    LCD_OFF();               //??????   
+    LCD_Command(LCD_RESET);  //??λ   
+    LCD_Command(0xa0);       //???????????????   
+    LCD_Command(LCD_DUTY32); //1/32   
+    LCD_Command(0xa4);       //????????    ??????????   
+    LCD_EndRW();             //???????м?1   
+    LCD_SetStartLine(0);     //?????????   
+    LCD_SetColumn(0);        //?????   
+    LCD_SetPage(0);          //????   
+    LCD_ON();                //?????   
+}   
+   
+void LCD_SetRam(u8 zhucongmian,u8 ndata)   
+{                   
+    GPIO_SetBits(LCM_A0);   
+    if(zhucongmian==0x00)    
+    {   
+        GPIO_SetBits(LCM_E1);   
+        GPIO_ResetBits(LCM_E2);    
+    }   
+    else   
+    {   
+        GPIO_ResetBits(LCM_E1);   
+        GPIO_SetBits(LCM_E2);    
+    }    
+       
+    Write_Data(ndata);   
+    GPIO_ResetBits(LCM_E1);   
+    GPIO_ResetBits(LCM_E2);   
+}   
+   
+void clrscr(void)   
+{   
+    u8 i;   
+    u8 page;   
+    for(page=0;page<4;page++)   
+    {   
+        LCD_SetPage(page);   
+        for(i=0;i<61;i++)   
+        {   
+            LCD_SetColumn(i);   
+            LCD_SetRam(0,0X00);   
+            LCD_SetRam(1,0X00);   
+        }           
+    }   
+}   
+   
+void drawword(u8 liedizhi,u8 layer,u8 wenzi)   
+{   
+   
+    u8 column,x;   //layer ??0??2??wenzi ????е??????   
+    u8 zhucongmian;    
+    for(x=0;x<16;x++)   
+    {   
+        column=liedizhi+x;      
+        if(column>60)   
+        {   
+            zhucongmian=1;   
+            column-=61;   
+        }   
+        else   
+        {    
+            zhucongmian=0;   
+        }   
+        LCD_SetColumn(column);//?????????   
+        LCD_SetPage(layer);   
+   
+        LCD_SetRam(zhucongmian,*(pzm+wenzi*32+x));   
+        LCD_SetColumn(column);//?????????   
+        LCD_SetPage(layer+1);   
+        LCD_SetRam(zhucongmian,*(pzm+wenzi*32+16+x));   
+    }   
+}   
+   
+void drawnumber(u8 liedizhi,u8 layer,u8 wenzi)   
+{   
+   
+    u8 column,x;   //layer ??0??2??wenzi ????е??????   
+    u8 zhucongmian;    
+    for(x=0;x<8;x++)   
+    {   
+        column=liedizhi+x;      
+        if(column>60)   
+        {   
+            zhucongmian=1;   
+            column-=61;   
+        }   
+        else   
+        {    
+            zhucongmian=0;   
+        }   
+        LCD_SetColumn(column);//?????????   
+        LCD_SetPage(layer);   
+   
+        LCD_SetRam(zhucongmian,*(pzm+wenzi*16+x));   
+        LCD_SetColumn(column);//?????????   
+        LCD_SetPage(layer+1);   
+        LCD_SetRam(zhucongmian,*(pzm+wenzi*16+8+x));   
+    }   
+}   
+   
+void LCD_Display_Wait(void)      
+{   
+    // LCM_RST?ø?      
+    GPIO_SetBits(LCM_RST);   
+    Delay(1000);   
+    GPIO_ResetBits(LCM_RST);   
+    Delay(1000);   
+    GPIO_SetBits(LCM_RST);   
+    GPIO_SetBits(LCM_EL);   
+       
+    LCD_Init();  //????????   
+    clrscr();   
+    pzm=ZM;   
+   
+    LCD_SetStartLine(16);      // ?????е?????1?????????????   
+    drawword(37,2,6); //?е???????????  "??"   
+    drawword(53,2,7); // "??"   
+    drawword(69,2,8); // "??"   
+   
+    LCD_SetStartLine(0);   
+    drawword(13,0,0); //?е???????????  "??"                 
+    drawword(29,0,1); //"??"   
+    drawword(45,0,2); //"??"   
+    drawword(61,0,3); //"??"                    
+    drawword(77,0,4); //"??"   
+    drawword(93,0,5); //"??"   
+}   
+   
+/******************* (C) COPYRIGHT 2007 STMicroelectronics *****END OF FILE****/   
